@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header.js";
 import { Container } from "semantic-ui-react";
 import Head from "next/head"; 
+
 export default props => {
   
   return (

@@ -3,10 +3,11 @@ import Layout from "../../components/Layout.js";
 import { Form, Button, Input, Message } from "semantic-ui-react";
 import factory from "../../ethereum/factory.js"; 
 import web3 from "../../ethereum/web3.js";
+
 import {Router} from '../../routes.js';
 
 class CampaignNew extends Component {
-  /*constructor*/
+  
   state = {
     minimunContribution: "",
     errorMessage: "",
@@ -15,7 +16,7 @@ class CampaignNew extends Component {
 
   onSubmit = async event => {
     event.preventDefault();
-    this.setState({loading:true, errorMessage:""}); 
+    this.setState({loading:true, errorMessage:""});
     try {
       const accounts = await web3.eth.getAccounts();
       //console.log(accounts);
@@ -24,6 +25,7 @@ class CampaignNew extends Component {
         .send({
           from: accounts[0]
         });
+        
         Router.pushRoute('/');
     } catch (err) {
       this.setState({ errorMessage: err.message });
